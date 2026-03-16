@@ -1,8 +1,10 @@
 # Assignment 02: Complexity Analysis & Performance Report
 
-**Course:** 2026 Algorithm Lecture  
+**Course:** 2026 Algorithm Lecture (Korea Univ. 26-1)  
 **Topic:** Time Complexity (O(1), O(n), O(n²)) Validation  
+**Student:** OhSeJun  
 **Date:** March 16, 2026  
+**GitHub Repository:** [https://github.com/OhSeJun97/Algorithm_26](https://github.com/OhSeJun97/Algorithm_26)
 
 ---
 
@@ -35,7 +37,11 @@ This project implements three different search strategies to demonstrate how alg
 
 ## 2. Evidence of Implementation (Deliverable 2)
 
-The backend is built using **FastAPI**. Below are the core snippets demonstrating the complexity differences:
+The backend is built using **FastAPI**.
+
+### [Action Required: Screenshot 1]
+> **여기에 서버 코드(`app.py`)의 주요 부분을 캡처해서 넣어주세요.**
+> (또는 제가 아래에 적어둔 코드 블록으로 대체 가능합니다.)
 
 ```python
 # O(1) Implementation (Dictionary)
@@ -65,14 +71,18 @@ Based on actual testing with 1,000 product items, the execution times were measu
 | **ID Lookup** | $O(1)$ | **0.0012 ms** | 1x (Baseline) |
 | **Duplicate Search** | $O(n^2)$ | **21.7074 ms** | **~18,089x Slower** |
 
-### Observation:
-The $O(n^2)$ algorithm is significantly slower even with a small dataset of 1,000 items. While 21ms is still fast for a human, if the dataset grows to 100,000 items, the $O(n^2)$ search would take hours, whereas the $O(1)$ search would still take less than 1ms.
+### [Action Required: Screenshot 2]
+> **브라우저에서 실행 결과(JSON 결과창)를 캡처해서 여기에 넣어주세요.**
+> 특히 `/search/id`와 `/search/duplicates`의 `execution_time_ms`가 찍힌 화면이 중요합니다.
 
 ---
 
 ## 4. Load Testing Analysis (Locust)
 
 Using **Locust**, multiple virtual users were simulated to stress the server.
+
+### [Action Required: Screenshot 3]
+> **Locust 대시보드(http://localhost:8089)의 'Statistics' 탭이나 'Charts' 탭을 캡처해서 여기에 넣어주세요.**
 
 - **Findings:**
     - Frequent calls to `/search/duplicates` caused a sharp spike in CPU usage.
@@ -91,26 +101,19 @@ To optimize the $O(n^2)$ duplicate detection to $O(n)$:
 
 ## 6. How to Reproduce (Testing Guide)
 
-To verify the performance results, follow these steps:
+The source code and testing environment are fully documented and available at the [GitHub Repository](https://github.com/OhSeJun97/Algorithm_26).
 
 ### 1. Start the FastAPI Server (Port 8000)
 ```bash
 cd Assignments/week2
 python app.py
 ```
-- The server will run at `http://localhost:8000`.
 
 ### 2. Run the Load Test (Port 8089)
 ```bash
 # In a new terminal
-locust -f locustfile.py
+locust -f locustfile.py --host=http://localhost:8000
 ```
-- Open your browser and go to `http://localhost:8089`.
-- **Crucial Step:** In the **Host** field of the Locust web interface, you must enter: `http://localhost:8000`.
-- Alternatively, run from the command line with the host pre-defined:
-  ```bash
-  locust -f locustfile.py --host=http://localhost:8000
-  ```
 
 ---
 *End of Report*
