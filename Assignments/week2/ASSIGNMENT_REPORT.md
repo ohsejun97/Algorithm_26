@@ -1,18 +1,3 @@
-<style>
-  body {
-    font-size: 11pt;
-    font-family: 'Times New Roman', Times, serif;
-    line-height: 1.6;
-    margin: 40px;
-  }
-  h1, h2, h3 { color: #2c3e50; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-  th { background-color: #f8f9fa; }
-  img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #eee; }
-  .caption { text-align: center; font-style: italic; color: #666; font-size: 10pt; margin-top: -10px; margin-bottom: 20px; }
-</style>
-
 # Assignment 02: Complexity Analysis & Performance Report
 
 **Course:** 2026 Algorithm Lecture (Korea Univ. 26-1)  
@@ -85,3 +70,18 @@ The results empirically prove that $O(n^2)$ algorithms are the primary cause of 
 
 ---
 *End of Report*
+
+<style>
+  body {
+    font-size: 11pt;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    margin: 40px;
+  }
+  h1, h2, h3 { color: #2c3e50; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+  th { background-color: #f8f9fa; }
+  img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #eee; }
+  .caption { text-align: center; font-style: italic; color: #666; font-size: 10pt; margin-top: -10px; margin-bottom: 20px; }
+</style>
