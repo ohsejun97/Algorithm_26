@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Shopping Mall - Search Complexity</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛒 Mini Shopping Mall</h1>
+            <p>Algorithm Complexity Visualizer</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-controls">
+                <input type="text" id="searchInput" placeholder="Search by name or ID...">
+                <button id="searchIdBtn">ID Lookup (O(1))</button>
+                <button id="searchNameBtn">Name Search (O(n))</button>
+                <button id="findDuplicatesBtn">Find Duplicates (O(n²))</button>
+            </div>
+            
+            <div id="statusInfo" class="status-info hidden">
+                <span id="complexityBadge" class="badge"></span>
+                <span id="executionTime"></span>
+            </div>
+        </section>
+
+        <main id="resultsContainer" class="results-grid">
+            <!-- Results will be injected here -->
+            <div class="placeholder">Search for products to see results...</div>
+        </main>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
