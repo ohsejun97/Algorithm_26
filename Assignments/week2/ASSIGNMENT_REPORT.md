@@ -88,4 +88,29 @@ To optimize the $O(n^2)$ duplicate detection to $O(n)$:
 2. This would reduce the comparison count from $500,000$ down to $1,000$, making the "Duplicates" search as efficient as a linear scan.
 
 ---
+
+## 6. How to Reproduce (Testing Guide)
+
+To verify the performance results, follow these steps:
+
+### 1. Start the FastAPI Server (Port 8000)
+```bash
+cd Assignments/week2
+python app.py
+```
+- The server will run at `http://localhost:8000`.
+
+### 2. Run the Load Test (Port 8089)
+```bash
+# In a new terminal
+locust -f locustfile.py
+```
+- Open your browser and go to `http://localhost:8089`.
+- **Crucial Step:** In the **Host** field of the Locust web interface, you must enter: `http://localhost:8000`.
+- Alternatively, run from the command line with the host pre-defined:
+  ```bash
+  locust -f locustfile.py --host=http://localhost:8000
+  ```
+
+---
 *End of Report*
