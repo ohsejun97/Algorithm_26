@@ -39,9 +39,7 @@ This project implements three different search strategies to demonstrate how alg
 
 The backend is built using **FastAPI**.
 
-### [Action Required: Screenshot 1]
-> **여기에 서버 코드(`app.py`)의 주요 부분을 캡처해서 넣어주세요.**
-> (또는 제가 아래에 적어둔 코드 블록으로 대체 가능합니다.)
+### Implementation Snippets
 
 ```python
 # O(1) Implementation (Dictionary)
@@ -71,9 +69,11 @@ Based on actual testing with 1,000 product items, the execution times were measu
 | **ID Lookup** | $O(1)$ | **0.0012 ms** | 1x (Baseline) |
 | **Duplicate Search** | $O(n^2)$ | **21.7074 ms** | **~18,089x Slower** |
 
-### [Action Required: Screenshot 2]
-> **브라우저에서 실행 결과(JSON 결과창)를 캡처해서 여기에 넣어주세요.**
-> 특히 `/search/id`와 `/search/duplicates`의 `execution_time_ms`가 찍힌 화면이 중요합니다.
+### Performance Test Results
+
+![Locust Statistics](../../locust_statistics.png)
+
+위 통계 화면에서 볼 수 있듯, $O(n^2)$ 복잡도를 가지는 `/search/duplicates`의 Average 응답 시간이 `/search/id` (O(1)) 및 `/search/name` (O(n)) 에 비해 압도적으로 높음을 확인할 수 있습니다.
 
 ---
 
@@ -81,12 +81,16 @@ Based on actual testing with 1,000 product items, the execution times were measu
 
 Using **Locust**, multiple virtual users were simulated to stress the server.
 
-### [Action Required: Screenshot 3]
-> **Locust 대시보드(http://localhost:8089)의 'Statistics' 탭이나 'Charts' 탭을 캡처해서 여기에 넣어주세요.**
+### Load Testing Charts
+
+![Locust Main](../../locust_main.png)
+*(Locust 부하 테스트 실행 화면)*
+
+![Locust Chart](../../locust_chart.png)
 
 - **Findings:**
     - Frequent calls to `/search/duplicates` caused a sharp spike in CPU usage.
-    - As concurrent users increased, the response time for the $O(n^2)$ endpoint degraded exponentially.
+    - As concurrent users increased, the response time for the $O(n^2)$ endpoint degraded exponentially (그래프 상의 우상향 곡선 확인).
     - The $O(1)$ endpoint maintained stable response times regardless of the load, proving its scalability.
 
 ---
