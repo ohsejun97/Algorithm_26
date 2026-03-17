@@ -18,7 +18,7 @@ We implemented three search strategies within a FastAPI backend to observe their
 
 ### B. Screenshot Evidence (Search Results)
 
-![ID Search Result](../locust_search_id.png)
+![ID Search Result](Assignments/week2/.images/locust_search_id.png)
 <div class="caption">Figure 1: O(1) Search result showing constant-time response (minimal latency).</div>
 
 ![Name Search Result](../locust_search_name.png)
