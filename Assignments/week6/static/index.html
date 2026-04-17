@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Checker - LCS Algorithm</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Checker</h1>
+        <p>Compare two documents using the Longest Common Subsequence (LCS) algorithm.</p>
+        
+        <div class="input-section">
+            <div class="input-box">
+                <label for="textA">Document A</label>
+                <textarea id="textA" placeholder="Enter text for Document A..."></textarea>
+            </div>
+            <div class="input-box">
+                <label for="textB">Document B</label>
+                <textarea id="textB" placeholder="Enter text for Document B..."></textarea>
+            </div>
+        </div>
+        
+        <button onclick="checkPlagiarism()" id="checkBtn">Check Similarity</button>
+        
+        <div id="resultSection" class="hidden">
+            <h2>Analysis Results</h2>
+            <div class="metrics">
+                <div class="metric-card">
+                    <h3>Similarity Score</h3>
+                    <p id="similarity">-</p>
+                </div>
+                <div class="metric-card">
+                    <h3>LCS Length</h3>
+                    <p id="lcsLength">-</p>
+                </div>
+            </div>
+            
+            <div class="lcs-string-box">
+                <h3>Actual LCS String</h3>
+                <p id="lcsString">-</p>
+            </div>
+            
+            <h3>Visual Diff View</h3>
+            <div id="diffView" class="diff-container"></div>
+            <div class="legend">
+                <span class="legend-item"><span class="box matched"></span> Matched</span>
+                <span class="legend-item"><span class="box removed"></span> Removed (from A)</span>
+                <span class="legend-item"><span class="box added"></span> Added (in B)</span>
+            </div>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
