@@ -13,3 +13,5 @@
 **/.venv/
 **/venv/
 Assignments/week6/exclude/
+Assignments/week6/REPORT.pdf
+**/*:Zone.Identifier
